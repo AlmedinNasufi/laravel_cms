@@ -47,4 +47,8 @@ class User extends Authenticatable
     protected function role(){
         return $this->belongsTo('\App\Models\Role');
     }
+
+    protected function photo(){
+        return $this->belongsTo('\App\Models\Photo');
+    }
 }

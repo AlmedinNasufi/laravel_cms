@@ -23,3 +23,6 @@ Route::get('/admin', function (){
 });
 
 Route::resource('admin/users','App\Http\Controllers\AdminUsersController');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
