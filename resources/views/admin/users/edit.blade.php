@@ -45,9 +45,16 @@
             {{--            {!! Form::select('status',array(1=>'Active', 0=>'Not Active'), 0,['class'=>'form-control']) !!}--}}
             {{--        </div>--}}
 
-            <div class="form-group">
-                {!! Form::submit('Create User',['class'=>'btn btn-primary']) !!}
+            <div class="form-group col-sm-6">
+                {!! Form::submit('Edit User',['class'=>'btn btn-primary']) !!}
             </div>
+            {!! Form::close() !!}
+
+            {!! Form::open(['method'=>'DELETE', 'action'=>['App\Http\Controllers\AdminUsersController@destroy', $user->id]]) !!}
+
+                <div class="form-group col-sm-6">
+                    {!! Form::submit('Delete User',['class'=>'btn btn-danger pull-right']) !!}
+                </div>
             {!! Form::close() !!}
 
         </div>

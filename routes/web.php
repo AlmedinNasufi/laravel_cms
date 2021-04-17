@@ -22,7 +22,11 @@ Route::get('/admin', function (){
     return view('admin.index');
 });
 
-Route::resource('admin/users','App\Http\Controllers\AdminUsersController');
+Route::group(['middleware' => 'admin'], function (){
+    Route::resource('admin/users','App\Http\Controllers\AdminUsersController');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
